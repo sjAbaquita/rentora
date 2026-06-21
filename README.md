@@ -1,528 +1,190 @@
-Project Overview
-Users
-1. Landlord / Property Owner
+# Rentora
+
+> A modern property management platform for landlords, lessors, and tenants.
+
+Rentora is an all-in-one property management system designed to simplify rental operations for property owners and provide tenants with a convenient self-service portal.
+
+Built with **Laravel 13**, **Vue 3**, **TypeScript**, **Inertia.js**, **Tailwind CSS v4**, and **Vite**, Rentora is designed to be scalable, modular, and ready for SaaS expansion.
+
+---
+
+## ✨ Features
+
+### 🏢 Property Management
+- Manage multiple properties
+- Support for apartments, buildings, houses, and boarding houses
+- Upload property images
+- Track occupancy rates
+
+### 🏠 Unit Management
+- Create and manage rooms or units
+- Track availability and occupancy status
+- Set unit-level pricing
+
+### 👤 Tenant Management
+- Tenant profiles
+- Emergency contacts
+- Document storage
+- Tenant history tracking
+
+### 📄 Lease Management
+- Create lease agreements
+- Track start and end dates
+- Manage security deposits
+- Lease renewal handling
+
+### 💰 Billing & Payments
+- Automatic monthly invoicing
+- Payment tracking
+- Partial payments support
+- Overdue management
+- Receipt generation
+
+### 🧑‍💻 Tenant Portal
+Tenants can:
+- View active lease details
+- View invoices and balances
+- Upload proof of payment
+- Download receipts
+- Submit maintenance requests
+- Receive announcements
+
+### 🔧 Maintenance Requests
+- Submit maintenance issues with photos
+- Track request status
+- Priority levels (Low, Medium, High)
+- Maintenance history
+
+### 📊 Reports
+- Income reports
+- Collection reports
+- Occupancy reports
+- Expense reports
+
+### 🔔 Notifications
+- Payment reminders
+- Lease expiration alerts
+- Announcements
+- Email and in-app notifications
+
+---
+
+## 🏘 Supported Property Types
+
+- Apartment
+- Building
+- House
+- Boarding House
+
+---
+
+## 👥 User Roles
+
+### Owner
+Manages:
+- Properties
+- Units
+- Tenants
+- Leases
+- Payments
+- Expenses
+- Reports
+- Maintenance requests
+
+### Tenant
+Access:
+- Rental information
+- Billing & payments
+- Receipts
+- Maintenance requests
+- Announcements
+
+### Staff
+Assists with:
+- Tenant management
+- Payment recording
+- Maintenance operations
 
-Manages properties, tenants, payments, contracts, and reports.
+---
 
-2. Tenant
+## 🛠 Tech Stack
 
-Can log in and:
+### Backend
+- Laravel 13
+- PHP 8.4
+- MySQL
 
-View rental details
-Pay rent
-Download receipts
-Submit maintenance requests
-Receive announcements
-3. Staff / Property Manager (optional)
+### Frontend
+- Vue 3
+- TypeScript
+- Inertia.js
+- Tailwind CSS v4
+- Vite
 
-Assists the owner in managing tenants and payments.
+### State Management
+- Pinia
 
-Property Types
-Apartment
+### UI Components
+- shadcn-vue
 
-Payment is room-based.
+### Testing
+- Pest
 
-Example:
-
-Sunrise Apartment
-├── Room 101
-├── Room 102
-├── Room 103
-
-Each room has:
-
-Monthly rent
-Occupancy status
-Tenant assignment
-Utility charges
-Building
-
-Payment may be by:
-
-Entire building
-Floor
-Unit
-
-Example:
-
-Commercial Building
-├── Unit A
-├── Unit B
-├── Unit C
-House
-
-Single tenant.
-
-Boarding House / Dormitory
-
-Similar to apartment but with beds or spaces.
-
-Core Modules
-1. Authentication
-Owner
-Login
-Register
-Forgot password
-Two-factor authentication
-Tenant Portal
-Login
-Change password
-Update profile
-Staff Roles
-Admin
-Property Manager
-Accountant
-
-Use:
-
-Laravel Breeze + Inertia + Vue + TypeScript
-2. Property Management
-
-Properties contain:
-
-Property
-- name
-- type
-- address
-- description
-- images
-- status
-
-Property types:
-
-Apartment
-Building
-House
-Boarding House
-
-Features:
-
-Add/Edit/Delete property
-Gallery
-Map location
-Occupancy percentage
-3. Units / Rooms
-
-Every property can contain units.
-
-Unit
-- property_id
-- unit_number
-- floor
-- size
-- monthly_rent
-- deposit
-- status
-
-Status:
-
-Available
-Occupied
-Reserved
-Under Maintenance
-4. Tenant Management
-Tenant
-- first_name
-- last_name
-- email
-- phone
-- emergency_contact
-- profile_photo
+---
 
-Features:
+## 📦 Planned Modules
 
-Upload ID
-Occupancy history
-Multiple tenants per unit
-Family members
-5. Lease Agreements
-Lease
-- tenant_id
-- unit_id
-- start_date
-- end_date
-- monthly_rent
-- security_deposit
+- Authentication
+- Dashboard
+- Property Management
+- Unit Management
+- Tenant Management
+- Lease Management
+- Invoice Management
+- Payment Management
+- Expense Tracking
+- Maintenance Requests
+- Meter Readings
+- Document Management
+- Notifications
+- Reports
 
-Features:
+---
 
-Renew lease
-Terminate lease
-Upload signed contract
-Lease history
-6. Billing Module
+## 🚀 Future Enhancements
 
-Generate:
+- GCash Integration
+- Maya Integration
+- Stripe / PayPal Payments
+- QR Code Payments
+- Reservation System
+- Public Property Listings
+- Calendar Management
+- E-Signatures
+- Multi-property support
+- SaaS multi-tenancy
+- Subscription plans
 
-Monthly Rent
+---
 
-Automatically.
+## 📐 Architecture Principles
 
-Additional charges:
+- Domain-Driven Design (DDD)
+- SOLID principles
+- Thin controllers (business logic in services)
+- Strong TypeScript typing
+- Reusable Vue components
+- Responsive design (mobile-first)
+- Dark mode support
 
-Water
-Electricity
-Internet
-Parking
-HOA dues
-Penalties
+---
 
-Invoice:
+## 🎯 Vision
 
-Invoice
-- due date
-- amount
-- status
+To provide landlords and property managers with a modern, scalable platform that digitizes rental operations and improves communication between owners and tenants.
 
-Statuses:
+---
 
-Pending
-Paid
-Overdue
-Partial
-7. Online Payment Module
+## 📄 License
 
-Tenant can pay through:
-
-GCash
-Maya
-Bank Transfer
-Stripe
-PayPal
-
-Payment statuses:
-
-Pending
-Paid
-Failed
-
-Features:
-
-Upload proof of payment
-Automatic receipt generation
-Payment history
-8. Utility Meter Reading
-
-Per unit:
-
-Electric Meter
-Water Meter
-
-Monthly:
-
-Previous reading
-Current reading
-Consumption
-Amount
-
-Automatically added to bills.
-
-9. Maintenance Requests
-
-Tenant can submit:
-
-Plumbing
-Electrical
-Cleaning
-Other concerns
-
-Priority:
-
-Low
-Medium
-High
-
-Status:
-
-Open
-In Progress
-Completed
-
-Can upload photos.
-
-10. Notifications
-
-Email notifications:
-
-Upcoming rent
-Overdue rent
-Payment received
-Lease expiration
-
-In-app notifications:
-
-Announcements
-Maintenance updates
-11. Announcement Board
-
-Owner posts:
-
-Water interruptions
-Holidays
-Building rules
-Maintenance schedules
-
-Visible to tenants.
-
-12. Dashboard
-Landlord Dashboard
-
-Cards:
-
-Total properties
-Occupied units
-Vacant units
-Monthly income
-Overdue payments
-
-Charts:
-
-Revenue
-Occupancy rate
-Collection history
-Tenant Dashboard
-
-Shows:
-
-Current unit
-Monthly rent
-Due date
-Outstanding balance
-Recent payments
-13. Reports
-
-Generate:
-
-Income Reports
-
-Daily
-
-Monthly
-
-Yearly
-
-Occupancy Reports
-
-Vacancy rate
-
-Collection Reports
-
-Paid vs overdue
-
-Export:
-
-Excel
-PDF
-CSV
-14. Receipt Generation
-
-Automatic PDF receipt.
-
-Contains:
-
-Invoice number
-Tenant
-Unit
-Payment method
-Date paid
-15. Expense Tracking
-
-Track:
-
-Repairs
-Utilities
-Taxes
-Maintenance costs
-
-Profit dashboard:
-
-Income - Expenses = Net Profit
-16. Move-In / Move-Out
-
-Track:
-
-Deposit
-Inspection checklist
-Damages
-Refund amount
-17. Visitor Logs (optional)
-
-Useful for apartments.
-
-Track:
-
-Visitor name
-Unit visited
-Date/time
-18. Document Management
-
-Store:
-
-Lease agreements
-IDs
-Receipts
-Permits
-19. Audit Logs
-
-Track who changed:
-
-Payments
-Tenants
-Rent amounts
-20. Multi-Property Support
-
-One landlord can manage:
-
-Property A
-Property B
-Property C
-
-Each property has its own:
-
-Rooms
-Tenants
-Income
-Advanced Features
-QR Code Payment
-
-Tenant scans QR code and uploads receipt.
-
-SMS Notifications
-
-Via:
-
-Twilio
-Semaphore
-Vonage
-E-Signature
-
-For lease agreements.
-
-Calendar
-
-View:
-
-Due dates
-Expiring contracts
-Maintenance schedules
-AI Assistant
-
-Can answer:
-
-"Who has overdue rent?"
-
-"Show income for May."
-
-Reservation Module
-
-Potential tenants can reserve units online.
-
-Vacancy Listing Website
-
-Public-facing site:
-
-example.com
-
-Shows:
-
-Available units
-Photos
-Pricing
-Contact form
-Suggested Database Structure
-users
-roles
-
-properties
-property_types
-
-units
-
-tenants
-
-leases
-
-invoices
-invoice_items
-
-payments
-
-meter_readings
-
-maintenance_requests
-
-announcements
-
-expenses
-
-documents
-
-notifications
-
-audit_logs
-Recommended Development Roadmap
-Phase 1 (MVP)
-
-✔ Authentication
-
-✔ Properties
-
-✔ Units/Rooms
-
-✔ Tenant Management
-
-✔ Lease Agreements
-
-✔ Billing
-
-✔ Payment Recording
-
-✔ Tenant Portal
-
-✔ Dashboard
-
-Phase 2
-
-✔ Utility Meter Reading
-
-✔ Maintenance Requests
-
-✔ Notifications
-
-✔ PDF Receipts
-
-✔ Reports
-
-✔ Expense Tracking
-
-Phase 3
-
-✔ Online Payments (GCash, Maya, Stripe)
-
-✔ Public Vacancy Website
-
-✔ Reservation System
-
-✔ Calendar
-
-✔ E-signature
-
-Phase 4
-
-✔ Multi-tenant SaaS
-
-Allow multiple landlords to subscribe.
-
-Plans:
-
-Free
-Basic
-Premium
-
-Each landlord gets:
-
-Organization
-    ├── Properties
-    ├── Units
-    ├── Tenants
-    ├── Staff
+This project is licensed under the MIT License.
