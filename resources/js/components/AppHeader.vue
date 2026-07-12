@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid, Menu, Search } from '@lucide/vue';
+import { Bell, CircleDollarSign, FileText, Home, LayoutGrid, Megaphone, Menu, Search, SquareStack, Users, Wallet, Wrench } from '@lucide/vue';
 import { computed } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
@@ -35,7 +35,25 @@ import UserMenuContent from '@/components/UserMenuContent.vue';
 import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { getInitials } from '@/composables/useInitials';
 import { toUrl } from '@/lib/utils';
+
 import { dashboard } from '@/routes';
+import announcements from '@/routes/announcements';
+import documents from '@/routes/documents';
+import expenses from '@/routes/expenses';
+import invoices from '@/routes/invoices';
+import leases from '@/routes/leases';
+import maintenance from '@/routes/maintenance';
+import meterReadings from '@/routes/meter-readings';
+import notifications from '@/routes/notifications';
+import organization from '@/routes/organization';
+import paymentIntegrations from '@/routes/payment-integrations';
+import payments from '@/routes/payments';
+import properties from '@/routes/properties';
+import reports from '@/routes/reports';
+import tenantPortal from '@/routes/tenant-portal';
+import tenants from '@/routes/tenants';
+import units from '@/routes/units';
+
 import type { BreadcrumbItem, NavItem } from '@/types';
 
 type Props = {
@@ -59,20 +77,89 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Properties',
+        href: properties.index().url,
+        icon: Home,
+    },
+    {
+        title: 'Tenants',
+        href: tenants.index().url,
+        icon: Users,
+    },
+    {
+        title: 'Units',
+        href: units.index().url,
+        icon: SquareStack,
+    },
+    {
+        title: 'Leases',
+        href: leases.index().url,
+        icon: FileText,
+    },
+    {
+        title: 'Invoices',
+        href: invoices.index().url,
+        icon: CircleDollarSign,
+    },
+    {
+        title: 'Payments',
+        href: payments.index().url,
+        icon: CircleDollarSign,
+    },
+    {
+        title: 'Maintenance',
+        href: maintenance.index().url,
+        icon: Wrench,
+    },
+    {
+        title: 'Expenses',
+        href: expenses.index().url,
+        icon: Wallet,
+    },
+    {
+        title: 'Announcements',
+        href: announcements.index().url,
+        icon: Megaphone,
+    },
+    {
+        title: 'Documents',
+        href: documents.index().url,
+        icon: FileText,
+    },
+    {
+        title: 'Reports',
+        href: reports.index().url,
+        icon: FileText,
+    },
+    {
+        title: 'Meter Readings',
+        href: meterReadings.index().url,
+        icon: FileText,
+    },
+    {
+        title: 'Notifications',
+        href: notifications.index().url,
+        icon: Bell,
+    },
+    {
+        title: 'Tenant Portal',
+        href: tenantPortal.index().url,
+        icon: Users,
+    },
+    {
+        title: 'Payment Integrations',
+        href: paymentIntegrations.index().url,
+        icon: Wallet,
+    },
+    {
+        title: 'Organization',
+        href: organization.index().url,
+        icon: Users,
+    },
 ];
 
-const rightNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#vue',
-        icon: BookOpen,
-    },
-];
+const rightNavItems: NavItem[] = [];
 </script>
 
 <template>
@@ -91,7 +178,7 @@ const rightNavItems: NavItem[] = [
                                 <Menu class="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="left" class="w-[300px] p-6">
+                        <SheetContent side="left" class="w-75 p-6">
                             <SheetTitle class="sr-only"
                                 >Navigation menu</SheetTitle
                             >
