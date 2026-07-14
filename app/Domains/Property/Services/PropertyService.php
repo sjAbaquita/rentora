@@ -19,6 +19,7 @@ class PropertyService
 				'address',
 				'city',
 				'property_type',
+				'total_units',
 				'status',
 				'created_at',
 			])

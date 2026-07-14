@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { propertyService } from '@/Services/PropertyService';
+import { propertyService } from '@/modules/properties/services/PropertyService';
 import type { Property, PropertyFormData } from '@/types/domains';
 
 export const usePropertyStore = defineStore('property', () => {

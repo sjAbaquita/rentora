@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { propertyService } from '@/Services/PropertyService';
+import { propertyService } from '@/modules/properties/services/PropertyService';
 import type { Property, PropertyFormData } from '@/types/domains';
 import { getValidationErrors } from '@/types/domains';
 
