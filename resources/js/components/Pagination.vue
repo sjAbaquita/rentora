@@ -15,17 +15,7 @@ const isNext = (label: string) => label.includes('Next');
 <template>
     <div
         v-if="pagination.last_page > 1"
-        class="mt-6 flex flex-col items-center justify-between gap-4 border-t pt-4 sm:flex-row"
     >
-        <p class="text-sm text-muted-foreground">
-			Showing
-			<span class="font-medium">{{ pagination.from }}</span>
-			to
-			<span class="font-medium">{{ pagination.to }}</span>
-			of
-			<span class="font-medium">{{ pagination.total }}</span>
-			{{ label ?? 'results' }}
-		</p>
 
         <nav
             class="flex items-center gap-1"

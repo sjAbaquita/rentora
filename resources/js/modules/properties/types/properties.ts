@@ -1,5 +1,5 @@
-import type { PropertyStatus } from '@/Enums/property-status';
-import type { PropertyType } from '@/Enums/property-types';
+import type { PropertyStatus } from '@/modules/properties/enums/property-status';
+import type { PropertyType } from '@/modules/properties/enums/property-types';
 
 export interface Property {
 	id: number;
